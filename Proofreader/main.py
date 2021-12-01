@@ -5,6 +5,14 @@ import random
 
 MATCHING_BASES = [["A", "T"], ["G", "C"]]
 
+HELP_TEXT = """
+Flags:
+	-part 		
+Commands:
+	proofread 	Proofread. Specification of .txt file that is to be proofread is needed.
+	createtest 	Create a test file. Specification of percentage of error is needed.
+"""
+
 def create_test_file(percentage):
 	with open("./proofreader_test.txt", "w") as obj:
 		for _ in range(0, 150):
@@ -77,6 +85,9 @@ def file_check(file_name, partially=False):
 		proper_file_name = files[0]
 		proofread(proper_file_name)
 
+def show_help():
+	print(HELP_TEXT)
+
 if __name__ == "__main__":
 	if len(sys.argv) > 1:
 		# proofread
@@ -103,6 +114,6 @@ if __name__ == "__main__":
 			create_test_file(percentage)
 			print("A test file created successfully.")
 		else:
-			file_check(sys.argv[1])
+			show_help()
 	else:
-		raise RuntimeError("Please specify a file name.")
+		show_help()
