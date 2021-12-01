@@ -88,7 +88,7 @@ def file_check(file_name, partially=False):
 def show_help():
 	print(HELP_TEXT)
 
-if __name__ == "__main__":
+def main():
 	if len(sys.argv) > 1:
 		# proofread
 		if sys.argv[1] == "proofread":
@@ -117,3 +117,6 @@ if __name__ == "__main__":
 			show_help()
 	else:
 		show_help()
+
+if __name__ == "__main__":
+	main()
